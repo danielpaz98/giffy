@@ -1,4 +1,4 @@
-import { API_URL, API_KEY } from "./settings";
+import { API_URL, API_KEY } from "~/constants";
 
 export default async function getGif({ id }) {
 	const apiURL = `${API_URL}/gifs/${id}?api_key=${API_KEY}`;
