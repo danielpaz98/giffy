@@ -13,7 +13,7 @@ export default function App() {
 			<div className="container">
 				<GifContextProvider>
 					<Route exact component={HomePage} path="/" />
-					<Route exact component={GifSearchResultsPage} path="/search/:keyword" />
+					<Route exact component={GifSearchResultsPage} path="/search/:keyword/:rating?" />
 					<Route exact component={GifDetailPage} path="/gif/:id" />
 				</GifContextProvider>
 
