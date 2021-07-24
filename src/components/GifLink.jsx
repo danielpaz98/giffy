@@ -1,4 +1,4 @@
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 
 export default function GifLink(props) {
 	const [location, setLocation] = useLocation();
