@@ -8,11 +8,12 @@ import useGifs from "~/hooks/useGifs";
 import useNearScreen from "~/hooks/useNearScreen";
 
 export default function SearchResults() {
-	const [match, params] = useRoute("/search/:keyword");
-	const keyword = match ? params.keyword : null;
-	const { loading, gifs, nextPage, isLastSearch } = useGifs(keyword);
-	const { isNearScreen, ref } = useNearScreen({ once: false });
+	const [match, params] = useRoute("/search/:keyword/:rating?");
+	const { keyword, rating } = match ? params : {};
+
+	const { loading, gifs, nextPage, isLastSearch } = useGifs({ keyword, rating });
 	const title = keyword ? decodeURI(keyword) : isLastSearch ? "Última Búsqueda" : "Gifs Random";
+	const { isNearScreen, ref } = useNearScreen({ once: false });
 
 	const handleNextPage = () => nextPage();
 
