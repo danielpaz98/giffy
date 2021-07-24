@@ -3,14 +3,14 @@ import CustomSeo from "~/components/CustomSeo";
 import SearchResults from "~/components/SearchResults";
 import TrendingSearches from "~/components/TrendingSearches";
 import Searcher from "~/components/Searcher";
-
 export default function GifSearchResultsPage({ params }) {
-	const title = decodeURI(params.keyword);
+	const { keyword, rating } = params;
+	const title = decodeURI(keyword);
 
 	return (
 		<>
 			<CustomSeo title={title} />
-			<Searcher />
+			<Searcher initialKeyword={keyword} initialRating={rating} />
 
 			<div className="results-section">
 				<SearchResults />

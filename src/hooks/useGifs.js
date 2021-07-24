@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 // SERVICES
 import getGifs from "~/services/getGifs";
 
-export default function useGifs(keyword) {
+export default function useGifs({ keyword, rating }) {
 	const [gifs, setGifs] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [loadingNextPage, setLoadingNextPage] = useState(false);
@@ -15,12 +15,12 @@ export default function useGifs(keyword) {
 	useEffect(() => {
 		setLoading(true);
 
-		getGifs({ keyword: keywordToUse }).then((data) => {
+		getGifs({ keyword: keywordToUse, rating }).then((data) => {
 			setGifs(data);
 			setLoading(false);
 			if (keywordToUse) localStorage.setItem("last_search", keywordToUse);
 		});
-	}, [keyword]);
+	}, [keyword, rating]);
 
 	const nextPage = () => {
 		setPage((prevPage) => prevPage + 1);
@@ -31,7 +31,7 @@ export default function useGifs(keyword) {
 
 		setLoadingNextPage(true);
 
-		getGifs({ keyword: keywordToUse, page }).then((nextGifs) => {
+		getGifs({ keyword: keywordToUse, rating, page }).then((nextGifs) => {
 			setGifs((prevGifs) => [...prevGifs, ...nextGifs]);
 			setLoadingNextPage(false);
 		});
