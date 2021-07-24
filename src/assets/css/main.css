@@ -54,13 +54,41 @@ main {
 	position: relative;
 }
 
+.form-search {
+	display: flex;
+}
+
 .search-results-title {
 	text-align: center;
 }
 
+.select-search {
+	padding: .5rem 2rem .5rem .75rem;
+	color: #212529;
+	background-color: #FFF;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 12px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	font-size: 18px;
+	transition: box-shadow .3s;
+}
+
+.input-search:focus, .select-search:focus {
+	box-shadow: 0 0 0 2pt rebeccapurple;
+}
+
 .input-search {
+	display: inline-block;
 	padding: .5em .75em;
-	border-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
 	border: none;
 	outline: none;
 	background-color: #000;
@@ -68,6 +96,7 @@ main {
 	caret-color: #FFF;
 	font-size: 18px;
 	width: 100%;
+	transition: box-shadow .3s;
 }
 
 .input-search::placeholder {
